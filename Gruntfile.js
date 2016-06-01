@@ -90,6 +90,14 @@ module.exports = function(grunt) {
                 },
                 src: 'test/fixtures/a.scss',
                 dest: 'tmp/noWriteDest.scss'
+            },
+            multiFile: {
+                options: {
+                    syntax: require('postcss-scss'),
+                    writeDest: true
+                },
+                src: 'test/fixtures/*.scss',
+                destFolder: 'tmp'
             }
         },
 

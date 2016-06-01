@@ -119,4 +119,9 @@ exports.gruntPostcss = {
         test.ok(!grunt.file.exists('tmp/noWriteDest.scss'));
         test.done();
     },
+    multiFile: function(test) {
+        test.ok(grunt.file.exists('tmp/a.css'));
+        test.ok(grunt.file.exists('tmp/b.css'));
+        test.done();
+    }
 };

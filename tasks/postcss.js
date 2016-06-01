@@ -138,6 +138,14 @@ module.exports = function(grunt) {
                     if (options.writeDest) {
                         grunt.file.write(dest, result.css);
                         log('File ' + chalk.cyan(dest) + ' created.');
+
+                        if (f.destFolder) {
+                            f.orig.src.forEach(function(src) {
+                                var srcBasePath = src.split('/*')[0],
+                                    fileDest = f.destFolder + filepath.replace(srcBasePath, '').replace('.scss', '.css');
+                                grunt.file.write(fileDest, result.css);
+                            });
+                        }
                     }
                     tally.sheets += 1;
 
