@@ -1,12 +1,16 @@
 {
-  "name": "grunt-postcss",
-  "version": "0.8.0",
+  "name": "grunt-postcss-multioutput",
+  "version": "0.8.1",
   "description": "Apply several post-processors to your CSS using PostCSS",
-  "author": {
+  "authors": {
     "name": "Dmitry Nikitenko",
     "email": "dima.nikitenko@gmail.com"
-  },
-  "repository": "nDmitry/grunt-postcss",
+    },
+  "contributors": [{
+    "name": "Ezequiel Rubio",
+    "email": "eze.rubio@gmail.com"
+  }],
+  "repository": "erubio/grunt-postcss",
   "license": "MIT",
   "engines": {
     "node": ">= 0.12.0"
