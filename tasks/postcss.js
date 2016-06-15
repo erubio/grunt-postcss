@@ -141,9 +141,16 @@ module.exports = function(grunt) {
 
                         if (f.destFolder) {
                             f.orig.src.forEach(function(src) {
-                                var srcBasePath = src.split('/*')[0],
-                                    fileDest = f.destFolder + filepath.replace(srcBasePath, '').replace(/\.\w{2,5}$/, '.css');
-                                grunt.file.write(fileDest, result.css);
+                                var srcBasePath, fileDest, regexp;
+                                if(src.split('/*').length > 1) {
+                                    srcBasePath = src.split('/*')[0];
+                                    fileDest = f.destFolder + filepath.replace(srcBasePath, '');
+                                } else {
+                                    regexp = new RegExp("(\\w+\/){" + f.destFolder.split('/').length + "}");
+                                    filepath = filepath.replace(regexp, '');
+                                    fileDest = f.destFolder + '/' + filepath;
+                                }
+                                grunt.file.write(fileDest.replace(/\.\w{2,5}$/, '.css'), result.css);
                             });
                         }
                     }
